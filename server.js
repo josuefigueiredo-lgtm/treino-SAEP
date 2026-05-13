@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./db');
-
+const router = require('./correcaoAula/Router/equipamentoRouter')
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/equipamentos', router);
 
 app.get('/usuarios', async (req,res)=>{
     
