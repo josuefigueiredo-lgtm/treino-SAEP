@@ -20,6 +20,8 @@ async function login(req,res) {
             <script>
                 alert('Login realizado');
 
+                localStorage.setItem("nome", "${nome}");
+
                 window.location.href = 'http://127.0.0.1:5501/public/login.html?nome=${nome}';
             </script>
         `)}

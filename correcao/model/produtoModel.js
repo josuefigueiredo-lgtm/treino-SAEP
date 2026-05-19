@@ -12,6 +12,17 @@ async function cadastrarProdutos(nome, quantidade, categoria) {
     return produto;
 }
 
+async function atualizarProdutos(idEquipamentos, nome, quantidade, categoria) {
+    const [produto] = await db.query('UPDATE equipamentos SET nome=?, quantidade=?, categoria=? WHERE idEquipamentos=?', [nome, quantidade, categoria,idEquipamentos])
+    return produto
+}
+
+async function deletarPedidos(id) {
+    await db.query("DELETE FROM equipamentos WHERE idEquipamentos=?", [id])
+    return true
+    
+}
+
 module.exports = {
-    listarProdutos, cadastrarProdutos
+    listarProdutos, cadastrarProdutos, atualizarProdutos, deletarPedidos
 }
