@@ -6,11 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="http://localhost:3000/equipamentos" method="POST">
-        Nome: <input type="text" name= "nome"  placeholder="Nome" required>
-        Categoria:  <input name= "categoria" type="text" placeholder="Categoria" required>
-        Quantidade: <input name="quantidade" type="number" placeholder="Quantidade" required>
-        <button type="submit">Enviar</button>
-    </form>
+    
+        Nome: <input type="text" name= "nome"  placeholder="Nome" id="nome" required>
+        Categoria:  <input name= "categoria" type="text" placeholder="Categoria" id="categoria" required>
+        Quantidade: <input name="quantidade" type="number" placeholder="Quantidade" id="quantidade" required>
+        <button onclick="cadastrar()">Enviar</button>
+   
 </body>
+<script>
+    async function cadastrar() {
+        const nome = document.getElementById("nome").value;
+        const quantidade = document.getElementById("quantidade").value;
+        const categoria = document.getElementById("categoria").value;
+
+        const equipamentos = {nome, categoria, quantidade};
+        const resposta = await fetch ("http://localhost:3000/equipamentos", {
+            method: "POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body: JSON.stringify(equipamentos)
+        })
+        alert("Equipamento cadastrado")
+    }
+</script>
 </html>
