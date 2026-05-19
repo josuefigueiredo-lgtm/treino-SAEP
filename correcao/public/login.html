@@ -9,6 +9,8 @@
     <h1 id="mensagem"></h1>
     <button onclick="sair()">Sair</button>
     <button onclick="verificar()">Verificar Produtos</button>
+    <button onclick="atualizarPedidos()">Atualizar Produtos</button>
+    <button onclick="deletarPedidos()">Deletar Produtos</button>
     <button onclick="cadastrarPedidos()">Cadastrar Produtos</button>
 
 
@@ -18,7 +20,9 @@
     const parametros = new URLSearchParams(window.location.search);
 
     const nome = parametros.get('nome');
-
+    
+    
+    
     document.getElementById('mensagem')
         .innerHTML = `Bem-vindo, ${nome}`;
 
@@ -31,6 +35,12 @@
         }
         function cadastrarPedidos(){
             window.location.href = 'http://127.0.0.1:5501/public/cadastrarPedidos.html';
+        }
+        function atualizarPedidos(){
+            window.location.href = 'http://127.0.0.1:5501/public/atualizarPedidos.html';
+        }
+        function deletarPedidos(){
+            window.location.href = 'http://127.0.0.1:5501/public/deletarPedidos.html';
         }
 
 </script>
